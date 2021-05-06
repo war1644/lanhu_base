@@ -7,9 +7,10 @@ WORKDIR /tianwen
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
 
 RUN apk --no-cache add bash tzdata && \
+    pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple && \
     pip install -U pip && \
     pip install setuptools==45 && \
-    pip install --trusted-host mirrors.aliyun.com --index-url http://mirrors.aliyun.com/pypi/simple/ six && \
+    pip install six && \
     ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     echo "Asia/Shanghai" > /etc/timezone
 
