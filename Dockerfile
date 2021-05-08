@@ -17,6 +17,7 @@ RUN apk --no-cache add bash tzdata && \
 COPY ./start.sh /
 COPY ./site-packages.tar.gz /usr/local/lib/python3.8/
 RUN tar xzvf /usr/local/lib/python3.8/site-packages.tar.gz -C /usr/local/lib/python3.8/ && rm /usr/local/lib/python3.8/site-packages.tar.gz
+EXPOSE 9900
 
 # RUN apk --no-cache add git 
 CMD ["/start.sh"]
